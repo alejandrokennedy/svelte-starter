@@ -4,11 +4,20 @@
 @import "reset.css";
 
 /* colors defined in variables.css */
+
+/* OLD PUDDING FONTS
+
 :root {
-	/* font */
 	--sans: "Atlas Grotesk", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 	--serif: "Tiempos Text", Iowan Old Style, Times New Roman, Times, serif;
-	--mono: Menlo, Consolas, Monaco, monospace;
+	--mono: Menlo, Consolas, Monaco, monospace;*/
+
+:root {
+	/* font */
+	--sans:
+		"Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+	--serif: Georgia, "Times New Roman", Times, serif;
+	--mono: "Roboto", Menlo, Consolas, Monaco, monospace;
 
 	/* z-index */
 	--z-bottom: -100;
@@ -40,10 +49,19 @@
 	--1s: 1ms;
 }
 
+/* Variable font support for modern browsers */
+@supports (font-variation-settings: normal) {
+	:root {
+		--sans:
+			"InterVariable", -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+			sans-serif;
+	}
+}
+
 /* dark theme */
 /* @media screen and (prefers-color-scheme:dark) {
 	:root {
-		
+
 	}
 } */
 

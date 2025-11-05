@@ -1,4 +1,31 @@
+/* Official Inter with variable font support */
+@import url("https://rsms.me/inter/inter.css");
+
+/* Roboto - Regular (400) */
 @font-face {
+	font-family: "Roboto";
+	src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2")
+		format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Roboto - Bold (700) */
+@font-face {
+	font-family: "Roboto";
+	src: url("https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2")
+		format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Note: Georgia is a system font, no @font-face needed */
+
+/* OLD PUDDING FONTS - COMMENTED OUT */
+
+/*@font-face {
 	font-family: "Atlas Grotesk";
 	src: url("https://pudding.cool/assets/fonts/atlas/AtlasGrotesk-Regular-Web.woff2") format("woff2");
 	font-weight: 400;
@@ -41,4 +68,4 @@
 	font-style: normal;
 	font-stretch: normal;
 	font-display: swap;
-}
+}*/
