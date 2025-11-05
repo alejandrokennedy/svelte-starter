@@ -424,28 +424,28 @@
 		line-height: 1.3;
 	}
 
-	.story span {
+	/*.story span {
 		display: block;
 		margin-top: 1em;
 		line-height: 1.2;
-	}
+	}*/
 
-	.wordmark {
+	/*.wordmark {
 		max-width: 240px;
 		transform: rotate(-4deg);
 		margin: 0;
-	}
+	}*/
 
-	.wordmark a {
+	/*.wordmark a {
 		border: none;
 		text-decoration: none;
-	}
+	}*/
 
-	.about {
+	/*.about {
 		margin: 3rem auto;
 		margin-top: 0;
 		text-align: center;
-	}
+	}*/
 
 	.link a {
 		border: none;
@@ -465,9 +465,9 @@
 		color: black;
 	}
 
-	.link-arrow {
+	/*.link-arrow {
 		margin-left: 5px;
-	}
+	}*/
 
 	.last {
 		margin-top: 50px;

@@ -275,9 +275,9 @@
 		text-decoration: 2px underline var(--color-link-hover);
 	}
 
-	a:hover + .arrow {
+	/*a:hover + .arrow {
 		left: -2px;
-	}
+	}*/
 
 	:global(a:hover + .arrow svg path) {
 		stroke: var(--color-link-hover, blue);
@@ -341,17 +341,17 @@
 		transform: rotate(var(--left-tilt, -2deg)) scale(1.05);
 	}
 
-	.wordmark {
+	/*.wordmark {
 		transform: rotate(var(--left-tilt, -2deg));
 		max-width: 360px;
 		transition: transform calc(var(--1s) * 0.25);
-	}
+	}*/
 
-	.wordmark:hover {
+	/*.wordmark:hover {
 		transform: rotate(0) scale(1.05);
-	}
+	}*/
 
-	.arrow {
+	/*.arrow {
 		display: inline-block;
 		width: 18px;
 		height: 18px;
@@ -359,7 +359,7 @@
 		top: 4px;
 		left: -4px;
 		transition: left calc(var(--1s) * 0.25);
-	}
+	}*/
 
 	@media only screen and (min-width: 400px) {
 		.images ul li {
@@ -411,12 +411,12 @@
 			font-size: var(--16px, 16px);
 		}
 
-		.arrow {
+		/*.arrow {
 			width: 24px;
 			height: 24px;
 			top: 6px;
 			left: -4px;
-		}
+		}*/
 
 		.images ul li {
 			width: calc(25% - 24px);
