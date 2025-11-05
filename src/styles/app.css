@@ -17,7 +17,7 @@
 	--sans:
 		"Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 	--serif: Georgia, "Times New Roman", Times, serif;
-	--mono: "Roboto", Menlo, Consolas, Monaco, monospace;
+	--mono: "Roboto Mono", Menlo, Consolas, Monaco, monospace;
 
 	/* z-index */
 	--z-bottom: -100;

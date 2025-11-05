@@ -1,8 +1,9 @@
 <script>
 	import { onMount } from "svelte";
 	import { shuffle } from "d3";
-	import wordmark from "$svg/wordmark-sticker.svg";
-	import linkOutArrow from "$svg/arrow-up-right.svg";
+	// TODO: Replace with C&EN wordmark and arrow SVGs
+	// import wordmark from "$svg/wordmark-sticker.svg";
+	// import linkOutArrow from "$svg/arrow-up-right.svg";
 	import Story from "$components/Footer.Story.svelte";
 
 	// custom to starter
@@ -99,7 +100,8 @@
 					<div class="text-wrapper">
 						<p>
 							<a href="https://patreon.com/thepudding">Support us on Patreon</a>
-							<span class="arrow">{@html linkOutArrow}</span>
+							<!-- TODO: Replace with C&EN arrow icon -->
+							<!-- <span class="arrow">{@html linkOutArrow}</span> -->
 						</p>
 						<p>
 							We pour our heart into these stories, but they take time and
@@ -123,7 +125,8 @@
 							<a href="https://pudding.cool/subscribe"
 								>Subscribe to our newsletter</a
 							>
-							<span class="arrow">{@html linkOutArrow}</span>
+							<!-- TODO: Replace with C&EN arrow icon -->
+							<!-- <span class="arrow">{@html linkOutArrow}</span> -->
 						</p>
 						<p>
 							Get all our latest stories in your inbox. Plus get links to some
@@ -135,7 +138,8 @@
 
 			<section class="links">
 				<a class="img-wrapper" href="https://pudding.cool">
-					<span class="wordmark">{@html wordmark}</span>
+					<!-- TODO: Replace with C&EN wordmark -->
+					<!-- <span class="wordmark">{@html wordmark}</span> -->
 				</a>
 				<div class="inner">
 					<div class="about">

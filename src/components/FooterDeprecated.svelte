@@ -1,11 +1,12 @@
 <!-- usage
-<Footer --footer-bg="#fff" topics={true} recent={true}> 
+<Footer --footer-bg="#fff" topics={true} recent={true}>
 -->
 <script>
 	import { onMount } from "svelte";
 	import { shuffle } from "d3";
-	import wordmark from "$svg/wordmark-line.svg";
-	import arrow from "$svg/arrow-footer.svg";
+	// TODO: Replace with C&EN wordmark and arrow SVGs
+	// import wordmark from "$svg/wordmark-line.svg";
+	// import arrow from "$svg/arrow-footer.svg";
 
 	let localURL;
 	let storiesRecent = $state([]);
@@ -134,7 +135,7 @@
 					<div class="link">
 						<a target="_self" href="https://patreon.com/thepudding"
 							>Support us as a <span class="arrow-no-wrap"
-								>Patron<span class="link-arrow">{@html arrow}</span></span
+								>Patron<!-- TODO: Replace with C&EN arrow icon --><!-- <span class="link-arrow">{@html arrow}</span> --></span
 							></a
 						>
 					</div>
@@ -144,7 +145,7 @@
 					<div class="link">
 						<a target="_self" href="https://thepuddingmail.substack.com/"
 							>Subscribe to the <span class="arrow-no-wrap"
-								>newsletter<span class="link-arrow">{@html arrow}</span></span
+								>newsletter<!-- TODO: Replace with C&EN arrow icon --><!-- <span class="link-arrow">{@html arrow}</span> --></span
 							></a
 						>
 					</div>
@@ -183,7 +184,8 @@
 
 		<div class="section section-last">
 			<div class="wordmark">
-				<a href="https://pudding.cool" target="_self">{@html wordmark}</a>
+				<!-- TODO: Replace with C&EN wordmark -->
+				<!-- <a href="https://pudding.cool" target="_self">{@html wordmark}</a> -->
 			</div>
 			<p>Made with <span class="heart">{`<3`}</span>by journalist-engineers</p>
 			<a class="privacy" href="https://pudding.cool/privacy/">Privacy Policy</a>
