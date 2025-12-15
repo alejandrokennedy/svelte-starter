@@ -6,8 +6,8 @@
 
 This fork uses a **Feature Branch Strategy** to stay synchronized with upstream changes:
 
-- **`main` branch**: Clean mirror of upstream for easy merging
-- **`acs-main` branch**: ACS/C&EN customizations (branding, chemistry-specific features, **uses pnpm**)
+- **`main` branch**: ACS/C&EN customizations (branding, chemistry-specific features, **uses pnpm**)
+- **`pudding` branch**: Clean mirror of upstream for easy merging
 - **Upstream sync**: Regular merging from The Pudding's repository to stay current with Svelte 5 migration and new features
 
 ### Step-by-Step Upstream Sync Process
@@ -82,9 +82,78 @@ git log --oneline -5  # Review merge history
 - **Visual tools**: Use Zed's Project Diff for clear conflict resolution
 - **Package manager**: acs-main uses **pnpm** for better performance and disk efficiency
 
+### Embeddable Component Architecture
+This starter is configured to be **embedded into larger websites** without style conflicts:
+
+- **Minimal `<head>` tags**: The `app.html` head section contains only `%sveltekit.head%` to avoid conflicts with parent site metadata
+- **Scoped CSS architecture**: All styles are scoped to `#story` container to prevent bleeding into parent sites
+- **Component wrapper**: Uses `<div id="content">` instead of `<main>` in `+layout.svelte` for flexibility
+- **Optional metadata**: `Meta.svelte` component is available but commented out by default in `+page.svelte`
+
+#### Embedding Workflow
+1. **Build your component**: Develop as normal with `npm run dev`
+2. **Build for production**: Run `npm run build` to generate static files
+3. **Extract component**: The built component can be injected into any parent site
+4. **Style isolation**: The `#story` container ensures no style conflicts with parent site
+
+### Scoped CSS System
+Located in `src/styles/`:
+
+```
+scoped.css              # Main scoped stylesheet (import this in +layout.svelte)
+├── variables.css       # CSS custom properties (colors, spacing, etc.)
+├── font.css            # Font declarations
+├── normalize-scoped.css # Browser normalization scoped to #story
+└── reset-scoped.css    # CSS reset scoped to #story
+```
+
+#### Architecture Details
+
+**Container Styles** (`#story`)
+- High specificity to establish inheritance
+- Sets typography, colors, and base styling
+- Contains CSS custom properties for component theming
+
+```css
+#story {
+	background-color: var(--color-bg, white);
+	color: var(--color-fg, black);
+	line-height: 1.4;
+	font-family: var(--font-body, Georgia, "Times New Roman", Times, serif);
+	/* ... CSS variables defined here ... */
+}
+```
+
+**Descendant Styles** (`:where(#story)`)
+- Zero specificity using `:where()` pseudo-class
+- Easily overridden by your component styles
+- Prevents conflicts with parent site
+- Includes form elements, buttons, tables, accessibility classes
+
+```css
+:where(#story) button {
+	/* Styles easily overridden by your components */
+}
+```
+#### Why This Matters
+
+**Problem**: Embedding components in other sites causes style conflicts
+- Global resets affect parent site
+- Parent site styles override your component
+- Specificity wars and `!important` overuse
+
+**Solution**: Scoped CSS with strategic specificity
+- ✅ Container (`#story`) establishes inheritance
+- ✅ Descendants (`:where()`) are easily customizable
+- ✅ Zero impact on parent site
+- ✅ No style bleeding in either direction
+
+
+
+
 ---
 
-## About the Original Template
+## About the Original Pudding Template
 
 # Svelte Starter
 
