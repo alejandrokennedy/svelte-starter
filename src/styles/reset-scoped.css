@@ -1,0 +1,253 @@
+:where(#story) h1,
+:where(#story) h2,
+:where(#story) h3,
+:where(#story) h4,
+:where(#story) h5,
+:where(#story) h6,
+:where(#story) p {
+	margin: 16px 0;
+}
+
+:where(#story) mark {
+	background-color: var(--color-mark, yellow);
+	padding: 0 4px;
+}
+
+:where(#story) a {
+	color: var(--color-link, blue);
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-color: var(--color-link, blue);
+	text-decoration-thickness: 2px;
+}
+
+:where(#story) img,
+:where(#story) video {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+:where(#story) input,
+:where(#story) textarea {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--color-input-bg, whitesmoke);
+	color: var(--color-input-fg, black);
+	border-radius: var(--border-radius, 0);
+	border: none;
+	font-family: var(--font-form, sans-serif);
+	font-size: inherit;
+	outline: 1px solid var(--color-border, ray);
+	padding: 8px;
+}
+
+:where(#story) button,
+:where(#story) select,
+:where(#story) a[role="button"],
+:where(#story) input[type="submit"],
+:where(#story) input[type="reset"],
+:where(#story) input[type="button"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--color-button-bg, lightgray);
+	color: var(--color-button-fg, black);
+	border-radius: var(--border-radius, 0);
+	border: none;
+	font-family: var(--font-form, sans-serif);
+	font-size: inherit;
+	outline: none;
+	padding: 8px;
+	text-decoration: none;
+}
+
+:where(#story) button,
+:where(#story) a[role="button"],
+:where(#story) input[type="button"],
+:where(#story) input[type="checkbox"],
+:where(#story) input[type="radio"],
+:where(#story) input[type="range"],
+:where(#story) input[type="submit"],
+:where(#story) input[type="reset"],
+:where(#story) select {
+	cursor: pointer;
+}
+
+:where(#story) input[type="button"],
+:where(#story) input[type="range"],
+:where(#story) input[type="submit"],
+:where(#story) input[type="reset"],
+:where(#story) select {
+	display: inline-block;
+}
+
+:where(#story) button:disabled,
+:where(#story) a[role="button"]:disabled,
+:where(#story) input[type="button"]:disabled,
+:where(#story) input[type="submit"]:disabled,
+:where(#story) input[type="reset"]:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+:where(#story) input[type="range"] {
+	-webkit-appearance: auto;
+	appearance: auto;
+	padding: 0;
+	outline: none;
+}
+
+:where(#story) button:focus,
+:where(#story) a:focus,
+:where(#story) a[role="button"]:focus,
+:where(#story) input:focus,
+:where(#story) select:focus,
+:where(#story) textarea:focus {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
+}
+
+:where(#story) button:focus:not(:focus-visible),
+:where(#story) a:focus:not(:focus-visible),
+:where(#story) a[role="button"]:focus:not(:focus-visible),
+:where(#story) input:focus:not(:focus-visible),
+:where(#story) select:focus:not(:focus-visible),
+:where(#story) textarea:focus:not(:focus-visible) {
+	outline: 2px solid transparent;
+}
+
+:where(#story) button:disabled,
+:where(#story) a[role="button"]:disabled,
+:where(#story) input:disabled,
+:where(#story) select:disabled,
+:where(#story) textarea:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+:where(#story) table {
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: fixed;
+}
+
+:where(#story) table caption,
+:where(#story) td,
+:where(#story) th {
+	text-align: left;
+}
+
+:where(#story) td,
+:where(#story) th {
+	padding: 8px 0;
+	vertical-align: top;
+	word-wrap: break-word;
+}
+
+:where(#story) thead {
+	border-bottom: 1px solid var(--color-border, lightgray);
+}
+
+:where(#story) tfoot {
+	border-top: 1px solid var(--color-border, lightgray);
+}
+
+:where(#story) ::-moz-placeholder {
+	color: var(--color-placeholder, gray);
+}
+
+:where(#story) :-ms-input-placeholder {
+	color: var(--color-placeholder, gray);
+}
+
+:where(#story) ::-ms-input-placeholder {
+	color: var(--color-placeholder, gray);
+}
+
+:where(#story) ::placeholder {
+	color: var(--color-placeholder, gray);
+}
+
+:where(#story) ::-moz-selection {
+	background-color: var(--color-selection, lightgray);
+}
+
+:where(#story) ::selection {
+	background-color: var(--color-selection, lightgray);
+}
+
+:where(#story) select {
+	padding-right: 24px;
+	background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20448%22%20enable-background%3D%22new%200%200%20256%20448%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.arrow%7Bfill%3A%23424242%3B%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22arrow%22%20d%3D%22M255.9%20168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2%200-7.9%201.6-11.2%204.8S0%20163.8%200%20168c0%204.4%201.6%208.2%204.8%2011.4l112%20112c3.1%203.1%206.8%204.6%2011.2%204.6%204.4%200%208.2-1.5%2011.4-4.6l112-112c3-3.2%204.5-7%204.5-11.4z%22%2F%3E%3C%2Fsvg%3E%0A");
+	background-position: right 8px center;
+	background-repeat: no-repeat;
+	background-size: auto 50%;
+}
+
+:where(#story) ol,
+:where(#story) ul {
+	padding-left: 16px;
+}
+
+:where(#story) .skip-to-main {
+	border: none;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+}
+
+:where(#story) .skip-to-main:focus {
+	background-color: var(--color-gray-900, black);
+	color: var(--color-white, white);
+	width: auto;
+	height: auto;
+	padding: 8px;
+	z-index: var(--z-overlay, 1000);
+}
+
+:where(#story) .sr-only {
+	clip: rect(0 0 0 0);
+	clip-path: inset(100%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+:where(#story) .text-outline {
+	--stroke-width: 1px;
+	--stroke-width-n: calc(var(--stroke-width) * -1);
+	text-shadow:
+		var(--stroke-width-n) var(--stroke-width-n) 0
+			var(--color-text-outline, #fff),
+		0 var(--stroke-width-n) 0 var(--color-text-outline, #fff),
+		var(--stroke-width) var(--stroke-width-n) 0 var(--color-text-outline, #fff),
+		var(--stroke-width) 0 0 var(--color-text-outline, #fff),
+		var(--stroke-width) var(--stroke-width) 0 var(--color-text-outline, #fff),
+		0 var(--stroke-width) 0 var(--color-text-outline, #fff),
+		var(--stroke-width-n) var(--stroke-width) 0 var(--color-text-outline, #fff),
+		var(--stroke-width-n) 0 0 var(--color-text-outline, #fff);
+}
+
+/* desktop (mouse-enabled device) */
+@media (hover: hover) and (pointer: fine) {
+	:where(#story) button:hover,
+	:where(#story) a[role="button"]:hover,
+	:where(#story) input[type="button"]:hover,
+	:where(#story) input[type="submit"]:hover,
+	:where(#story) input[type="reset"]:hover {
+		background: var(--color-button-hover, lightgray);
+	}
+
+	:where(#story) button:disabled:hover,
+	:where(#story) a[role="button"]:disabled:hover,
+	:where(#story) input[type="button"]:disabled:hover,
+	:where(#story) input[type="submit"]:disabled:hover,
+	:where(#story) input[type="reset"]:disabled:hover {
+		opacity: 0.5;
+		cursor: not-allowed;
+		background: var(--color-button-bg, lightgray);
+	}
+}

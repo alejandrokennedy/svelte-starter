@@ -1,11 +1,11 @@
-<script>
-	import "$styles/app.css";
+<script lang="ts">
+	import "styles/scoped.css";
 	import Header from "$components/Header.svelte";
 
 	let { children } = $props();
 </script>
 
 <Header />
-<main id="content">
+<div id="content">
 	{@render children?.()}
-</main>
+</div>
