@@ -6,6 +6,9 @@ const config = {
 		runes: true
 	},
 	preprocess: vitePreprocess(),
+	vitePlugin: {
+		inspector: true
+	},
 	kit: {
 		adapter: adapterStatic({ strict: false }),
 		output: {

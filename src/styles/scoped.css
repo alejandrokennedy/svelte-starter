@@ -6,6 +6,10 @@
 @import "variables.css";
 @import "font.css";
 
+/* descendant styles imports*/
+@import "normalize-scoped.css";
+@import "reset-scoped.css";
+
 /* Variable font support */
 @supports (font-variation-settings: normal) {
 	:root {
@@ -82,9 +86,6 @@
 /* ===================================================================
    DESCENDANT STYLES - Use :where() for zero specificity
    =================================================================== */
-
-@import "normalize-scoped.css";
-@import "reset-scoped.css";
 
 /* Body margin reset */
 :where(body) {
