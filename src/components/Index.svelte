@@ -1,11 +1,14 @@
 <script>
 	import { getContext } from "svelte";
-	// import Footer from "$components/Footer.svelte";
+	import StoryContainer from "./story/StoryContainer.svelte";
+	import Story from "./story/Story.svelte";
 
 	const copy = getContext("copy");
 	const data = getContext("data");
 </script>
 
 <svelte:boundary onerror={(e) => console.error(e)}>
-	<!-- <Footer recirc={true} /> -->
+	<StoryContainer>
+		<Story />
+	</StoryContainer>
 </svelte:boundary>

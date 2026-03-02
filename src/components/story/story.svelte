@@ -1,4 +1,10 @@
 <script lang="ts">
+	import { footerState } from "$utils/footerState.svelte";
+	if (import.meta.env.DEV) {
+		$inspect("footer visible:", footerState.visible);
+	}
 </script>
 
-<div id="story"></div>
+<div id="story">
+	<div>Story</div>
+</div>
