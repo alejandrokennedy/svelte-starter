@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { getContext } from "svelte";
 	import StoryContainer from "./story/StoryContainer.svelte";
 	import Story from "./story/Story.svelte";
