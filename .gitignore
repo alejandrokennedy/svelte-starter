@@ -6,3 +6,5 @@ build
 functions
 .env
 raw-data
+.sda-cache
+.tmp
