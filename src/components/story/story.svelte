@@ -5,6 +5,6 @@
 	}
 </script>
 
-<div id="story">
+<div class="scrollo-story">
 	<div>Story</div>
 </div>

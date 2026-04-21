@@ -1,5 +1,5 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-/* SCOPED VERSION for :where(#story) - Gentler resets */
+/* SCOPED VERSION for :where(.scrollo-story) - Gentler resets */
 
 /* Document
    ========================================================================== */
@@ -9,8 +9,8 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-:where(#story) html,
-:where(#story) {
+:where(.scrollo-story) html,
+:where(.scrollo-story) {
 	line-height: 1.15; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -22,7 +22,7 @@
  * Remove the margin in all browsers.
  */
 
-:where(#story) body {
+:where(.scrollo-story) body {
 	margin: 0;
 }
 
@@ -30,7 +30,7 @@
  * Render the `main` element consistently in IE.
  */
 
-:where(#story) main {
+:where(.scrollo-story) main {
 	display: block;
 }
 
@@ -39,7 +39,7 @@
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-:where(#story) h1 {
+:where(.scrollo-story) h1 {
 	font-size: 2em;
 	margin: 0.67em 0;
 }
@@ -52,7 +52,7 @@
  * 2. Show the overflow in Edge and IE.
  */
 
-:where(#story) hr {
+:where(.scrollo-story) hr {
 	box-sizing: content-box; /* 1 */
 	height: 0; /* 1 */
 	overflow: visible; /* 2 */
@@ -63,7 +63,7 @@
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-:where(#story) pre {
+:where(.scrollo-story) pre {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
 }
@@ -75,7 +75,7 @@
  * Remove the gray background on active links in IE 10.
  */
 
-:where(#story) a {
+:where(.scrollo-story) a {
 	background-color: transparent;
 }
 
@@ -84,7 +84,7 @@
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 
-:where(#story) abbr[title] {
+:where(.scrollo-story) abbr[title] {
 	border-bottom: none; /* 1 */
 	text-decoration: underline; /* 2 */
 	text-decoration: underline dotted; /* 2 */
@@ -94,8 +94,8 @@
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-:where(#story) b,
-:where(#story) strong {
+:where(.scrollo-story) b,
+:where(.scrollo-story) strong {
 	font-weight: bolder;
 }
 
@@ -104,9 +104,9 @@
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-:where(#story) code,
-:where(#story) kbd,
-:where(#story) samp {
+:where(.scrollo-story) code,
+:where(.scrollo-story) kbd,
+:where(.scrollo-story) samp {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
 }
@@ -115,7 +115,7 @@
  * Add the correct font size in all browsers.
  */
 
-:where(#story) small {
+:where(.scrollo-story) small {
 	font-size: 80%;
 }
 
@@ -124,19 +124,19 @@
  * all browsers.
  */
 
-:where(#story) sub,
-:where(#story) sup {
+:where(.scrollo-story) sub,
+:where(.scrollo-story) sup {
 	font-size: 75%;
 	line-height: 0;
 	position: relative;
 	vertical-align: baseline;
 }
 
-:where(#story) sub {
+:where(.scrollo-story) sub {
 	bottom: -0.25em;
 }
 
-:where(#story) sup {
+:where(.scrollo-story) sup {
 	top: -0.5em;
 }
 
@@ -147,7 +147,7 @@
  * Remove the border on images inside links in IE 10.
  */
 
-:where(#story) img {
+:where(.scrollo-story) img {
 	border-style: none;
 }
 
@@ -159,11 +159,11 @@
  * 2. Remove the margin in Firefox and Safari.
  */
 
-:where(#story) button,
-:where(#story) input,
-:where(#story) optgroup,
-:where(#story) select,
-:where(#story) textarea {
+:where(.scrollo-story) button,
+:where(.scrollo-story) input,
+:where(.scrollo-story) optgroup,
+:where(.scrollo-story) select,
+:where(.scrollo-story) textarea {
 	font-family: inherit; /* 1 */
 	font-size: 100%; /* 1 */
 	line-height: 1.15; /* 1 */
@@ -175,8 +175,8 @@
  * 1. Show the overflow in Edge.
  */
 
-:where(#story) button,
-:where(#story) input {
+:where(.scrollo-story) button,
+:where(.scrollo-story) input {
 	/* 1 */
 	overflow: visible;
 }
@@ -186,8 +186,8 @@
  * 1. Remove the inheritance of text transform in Firefox.
  */
 
-:where(#story) button,
-:where(#story) select {
+:where(.scrollo-story) button,
+:where(.scrollo-story) select {
 	/* 1 */
 	text-transform: none;
 }
@@ -196,10 +196,10 @@
  * Correct the inability to style clickable types in iOS and Safari.
  */
 
-:where(#story) button,
-:where(#story) [type="button"],
-:where(#story) [type="reset"],
-:where(#story) [type="submit"] {
+:where(.scrollo-story) button,
+:where(.scrollo-story) [type="button"],
+:where(.scrollo-story) [type="reset"],
+:where(.scrollo-story) [type="submit"] {
 	-webkit-appearance: button;
 	appearance: button;
 }
@@ -208,10 +208,10 @@
  * Remove the inner border and padding in Firefox.
  */
 
-:where(#story) button::-moz-focus-inner,
-:where(#story) [type="button"]::-moz-focus-inner,
-:where(#story) [type="reset"]::-moz-focus-inner,
-:where(#story) [type="submit"]::-moz-focus-inner {
+:where(.scrollo-story) button::-moz-focus-inner,
+:where(.scrollo-story) [type="button"]::-moz-focus-inner,
+:where(.scrollo-story) [type="reset"]::-moz-focus-inner,
+:where(.scrollo-story) [type="submit"]::-moz-focus-inner {
 	border-style: none;
 	padding: 0;
 }
@@ -220,10 +220,10 @@
  * Restore the focus styles unset by the previous rule.
  */
 
-:where(#story) button:-moz-focusring,
-:where(#story) [type="button"]:-moz-focusring,
-:where(#story) [type="reset"]:-moz-focusring,
-:where(#story) [type="submit"]:-moz-focusring {
+:where(.scrollo-story) button:-moz-focusring,
+:where(.scrollo-story) [type="button"]:-moz-focusring,
+:where(.scrollo-story) [type="reset"]:-moz-focusring,
+:where(.scrollo-story) [type="submit"]:-moz-focusring {
 	outline: 1px dotted ButtonText;
 }
 
@@ -231,7 +231,7 @@
  * Correct the padding in Firefox.
  */
 
-:where(#story) fieldset {
+:where(.scrollo-story) fieldset {
 	padding: 0.35em 0.75em 0.625em;
 }
 
@@ -242,7 +242,7 @@
  *    `fieldset` elements in all browsers.
  */
 
-:where(#story) legend {
+:where(.scrollo-story) legend {
 	box-sizing: border-box; /* 1 */
 	color: inherit; /* 2 */
 	display: table; /* 1 */
@@ -255,7 +255,7 @@
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
 
-:where(#story) progress {
+:where(.scrollo-story) progress {
 	vertical-align: baseline;
 }
 
@@ -263,7 +263,7 @@
  * Remove the default vertical scrollbar in IE 10+.
  */
 
-:where(#story) textarea {
+:where(.scrollo-story) textarea {
 	overflow: auto;
 }
 
@@ -272,8 +272,8 @@
  * 2. Remove the padding in IE 10.
  */
 
-:where(#story) [type="checkbox"],
-:where(#story) [type="radio"] {
+:where(.scrollo-story) [type="checkbox"],
+:where(.scrollo-story) [type="radio"] {
 	box-sizing: border-box; /* 1 */
 	padding: 0; /* 2 */
 }
@@ -282,8 +282,8 @@
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 
-:where(#story) [type="number"]::-webkit-inner-spin-button,
-:where(#story) [type="number"]::-webkit-outer-spin-button {
+:where(.scrollo-story) [type="number"]::-webkit-inner-spin-button,
+:where(.scrollo-story) [type="number"]::-webkit-outer-spin-button {
 	height: auto;
 }
 
@@ -292,7 +292,7 @@
  * 2. Correct the outline style in Safari.
  */
 
-:where(#story) [type="search"] {
+:where(.scrollo-story) [type="search"] {
 	-webkit-appearance: textfield; /* 1 */
 	appearance: textfield; /* 1 */
 	outline-offset: -2px; /* 2 */
@@ -302,7 +302,7 @@
  * Remove the inner padding in Chrome and Safari on macOS.
  */
 
-:where(#story) [type="search"]::-webkit-search-decoration {
+:where(.scrollo-story) [type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
 }
 
@@ -311,7 +311,7 @@
  * 2. Change font properties to `inherit` in Safari.
  */
 
-:where(#story) ::-webkit-file-upload-button {
+:where(.scrollo-story) ::-webkit-file-upload-button {
 	-webkit-appearance: button; /* 1 */
 	font: inherit; /* 2 */
 }
@@ -323,7 +323,7 @@
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
 
-:where(#story) details {
+:where(.scrollo-story) details {
 	display: block;
 }
 
@@ -331,7 +331,7 @@
  * Add the correct display in all browsers.
  */
 
-:where(#story) summary {
+:where(.scrollo-story) summary {
 	display: list-item;
 }
 
@@ -342,7 +342,7 @@
  * Add the correct display in IE 10+.
  */
 
-:where(#story) template {
+:where(.scrollo-story) template {
 	display: none;
 }
 
@@ -350,69 +350,69 @@
  * Add the correct display in IE 10.
  */
 
-:where(#story) [hidden] {
+:where(.scrollo-story) [hidden] {
 	display: none;
 }
 
 /*! https://github.com/a11yproject/a11yproject.com/blob/main/src/css/base/_resets.scss */
 /* Box-sizing only - no margin/padding resets to avoid overriding component styles */
-:where(#story) *,
-:where(#story) *::before,
-:where(#story) *::after {
+:where(.scrollo-story) *,
+:where(.scrollo-story) *::before,
+:where(.scrollo-story) *::after {
 	box-sizing: border-box;
 }
 
 /* Removes borders from linked images */
-:where(#story) a img {
+:where(.scrollo-story) a img {
 	border: none;
 }
 
-:where(#story) b,
-:where(#story) strong {
+:where(.scrollo-story) b,
+:where(.scrollo-story) strong {
 	font-weight: 700;
 }
 
-:where(#story) button,
-:where(#story) input[type="button"] {
+:where(.scrollo-story) button,
+:where(.scrollo-story) input[type="button"] {
 	border: 0;
 }
 
-:where(#story) em,
-:where(#story) cite,
-:where(#story) i {
+:where(.scrollo-story) em,
+:where(.scrollo-story) cite,
+:where(.scrollo-story) i {
 	font-style: italic;
 }
 
-:where(#story) img,
-:where(#story) figure,
-:where(#story) picture {
+:where(.scrollo-story) img,
+:where(.scrollo-story) figure,
+:where(.scrollo-story) picture {
 	border: 0;
 	display: block;
 	height: auto;
 	max-width: 100%;
 }
 
-:where(#story) h1,
-:where(#story) h2,
-:where(#story) h3,
-:where(#story) h4,
-:where(#story) h5,
-:where(#story) h6 {
+:where(.scrollo-story) h1,
+:where(.scrollo-story) h2,
+:where(.scrollo-story) h3,
+:where(.scrollo-story) h4,
+:where(.scrollo-story) h5,
+:where(.scrollo-story) h6 {
 	font-weight: 500;
 }
 
-:where(#story) sub {
+:where(.scrollo-story) sub {
 	text-transform: lowercase;
 	font-size: inherit;
 	font-variant-position: sub;
 }
 
-:where(#story) sup {
+:where(.scrollo-story) sup {
 	text-transform: lowercase;
 	font-variant-position: super;
 }
 
-:where(#story) textarea {
+:where(.scrollo-story) textarea {
 	overflow: auto;
 	resize: vertical;
 }

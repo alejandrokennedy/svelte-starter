@@ -31,7 +31,7 @@
    =================================================================== */
 
 /* These styles MUST win to establish proper inheritance */
-#story {
+.scrollo-story {
 	background-color: var(--color-bg, white);
 	color: var(--color-fg, black);
 	line-height: 1.4;
@@ -92,22 +92,22 @@
 	margin: 0;
 }
 
-/* Additional scoped heading sizes for #story descendants */
-:where(#story) h1 {
+/* Additional scoped heading sizes for .scrollo-story descendants */
+:where(.scrollo-story) h1 {
 	font-size: var(--48px, 48px);
 }
-:where(#story) h2 {
+:where(.scrollo-story) h2 {
 	font-size: var(--36px, 36px);
 }
-:where(#story) h3 {
+:where(.scrollo-story) h3 {
 	font-size: var(--28px, 28px);
 }
-:where(#story) h4 {
+:where(.scrollo-story) h4 {
 	font-size: var(--24px, 24px);
 }
-:where(#story) h5 {
+:where(.scrollo-story) h5 {
 	font-size: var(--22px, 22px);
 }
-:where(#story) h6 {
+:where(.scrollo-story) h6 {
 	font-size: var(--20px, 20px);
 }
