@@ -50,7 +50,7 @@
 :where(.scrollo-story) input[type="button"] {
 	-webkit-appearance: none;
 	appearance: none;
-	background-color: var(--color-button-bg-primary, lightgray);
+	background-color: var(--color-button-bg, lightgray);
 	color: var(--color-button-fg-primary, black);
 	border-radius: var(--radius-md, 0);
 	border: none;
@@ -239,7 +239,7 @@
 	:where(.scrollo-story) input[type="submit"]:hover,
 	:where(.scrollo-story) input[type="reset"]:hover {
 		/*background: var(--color-button-hover, lightgray);*/
-		background: oklch(from var(--color-button-bg-primary) calc(l - 0.1) c h);
+		background: oklch(from var(--color-button-bg) calc(l - 0.1) c h);
 	}
 
 	:where(.scrollo-story) button:disabled:hover,
@@ -249,6 +249,6 @@
 	:where(.scrollo-story) input[type="reset"]:disabled:hover {
 		opacity: 0.5;
 		cursor: not-allowed;
-		background: var(--color-button-bg-primary, lightgray);
+		background: var(--color-button-bg, lightgray);
 	}
 }

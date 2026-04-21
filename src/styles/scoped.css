@@ -83,6 +83,21 @@
 	--1s: 1ms;
 }
 
+.scrollo-story.scrollo-dark {
+	--color-bg: black;
+	--color-fg: white;
+	--color-link: var(--color-white);
+	--color-link-hover: var(--color-white);
+	--color-border: var(--color-gray-700);
+	--color-input-bg: var(--color-gray-900);
+	--color-input-fg: var(--color-white);
+	--color-button-bg: var(--color-gray-800);
+	--color-button-fg: var(--color-white);
+	--color-button-hover: var(--color-gray-700);
+	--color-placeholder: var(--color-gray-500);
+	--color-selection: var(--color-gray-700);
+}
+
 /* ===================================================================
    DESCENDANT STYLES - Use :where() for zero specificity
    =================================================================== */
