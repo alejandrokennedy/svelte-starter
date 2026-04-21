@@ -13,6 +13,5 @@
 		margin: 0 auto;
 		padding: 0;
 		font-size: 1.125rem;
-		/*color-scheme: light;*/
 	}
 </style>

@@ -10,5 +10,6 @@
 <svelte:boundary onerror={(e) => console.error(e)}>
 	<StoryContainer>
 		<Story />
+		<!-- <Story darkMode /> -->
 	</StoryContainer>
 </svelte:boundary>
