@@ -8,6 +8,7 @@
 	 *   bind:stepProgress
 	 *   chapters={[{ text: "Step 1..." }, { text: "Step 2..." }]}
 	 *   top="75vh"
+		   smoothIntro={true} // defaults to false
 	 * />
 	 */
 
@@ -18,22 +19,25 @@
 		stepProgress?: number | null | undefined;
 		chapters: Array<{ text: string }>;
 		top?: number | string;
+		smoothIntro?: boolean;
 	}
 
 	let {
 		step = $bindable(),
 		stepProgress = $bindable(),
 		chapters,
-		top = "75vh"
+		top = "75vh",
+		smoothIntro = false
 	}: Props = $props();
 </script>
 
 <div id="foreground">
-	<Scrollo bind:value={step} bind:stepProgress {top}>
+	<Scrollo bind:value={step} bind:stepProgress {top} {smoothIntro}>
 		{#each chapters as { text }, i}
 			{@const activeStep = step === i}
 			<div class="step" class:activeStep>
-				<p>{text}</p>
+				<p>{@html text}</p>
+				<!-- <p>{text}</p> -->
 			</div>
 		{/each}
 	</Scrollo>
@@ -56,7 +60,7 @@
 	/* Step container - scroll timing & layout */
 	.step {
 		margin: 0 auto;
-		width: var(--scrollo-step-width, 30vw);
+		width: var(--scrollo-step-width, 38vw);
 		padding-top: var(--scrollo-step-padding-top, 0vh);
 		padding-bottom: var(--scrollo-step-padding-bottom, 60vh);
 	}
@@ -78,7 +82,7 @@
 		text-align: var(--scrollo-foreground-align, center);
 	}
 
-	/* Step text - inactive state */
+	/* Step text - inactive state (light mode default) */
 	.step p {
 		padding: var(--scrollo-text-padding, 1rem);
 		background: var(--scrollo-text-bg, whitesmoke);
@@ -92,11 +96,26 @@
 		max-width: var(--scrollo-text-max-width, 500px);
 	}
 
-	/* Step text - active state */
+	/* Step text - active state (light mode default) */
 	.step.activeStep p {
 		background: var(--scrollo-text-bg-activeStep, white);
 		color: var(--scrollo-text-color-activeStep, black);
 		opacity: var(--scrollo-text-opacity-activeStep, 0.94);
+	}
+
+	/* Dark mode overrides - when inside .scrollo-dark */
+	:global(.scrollo-dark) .step p {
+		background: var(--scrollo-text-bg-dark, rgba(20, 20, 20, 0.9));
+		color: var(--scrollo-text-color-dark, #555);
+		box-shadow: var(
+			--scrollo-text-shadow-dark,
+			1px 1px 10px rgba(0, 0, 0, 0.5)
+		);
+	}
+
+	:global(.scrollo-dark) .step.activeStep p {
+		background: var(--scrollo-text-bg-activeStep-dark, rgba(45, 45, 45, 0.95));
+		color: var(--scrollo-text-color-activeStep-dark, white);
 	}
 
 	/* Nested paragraph spacing (for multi-paragraph steps) */
@@ -131,8 +150,8 @@
 		}
 
 		.step {
-			padding-top: var(--scrollo-step-padding-top-mobile, 35vh);
-			padding-bottom: var(--scrollo-step-padding-bottom-mobile, 45vh);
+			/*padding-top: var(--scrollo-step-padding-top-mobile, 35vh);*/
+			/*padding-bottom: var(--scrollo-step-padding-bottom-mobile, 45vh);*/
 			width: var(--scrollo-step-width-mobile, 100%);
 			max-width: var(--scrollo-step-max-width-mobile, 100%);
 		}
@@ -170,6 +189,12 @@
 				var(--stroke-width-n) 0 0 white
 			);
 		}
+
+		/* TODO: Dark mode mobile overrides - uncomment and customize when needed */
+		/* :global(.scrollo-dark) .step.activeStep p {
+			background: var(--scrollo-text-bg-activeStep-mobile-dark, rgba(45, 45, 45, 0.95));
+			text-shadow: var(--scrollo-text-stroke-shadow-dark, none);
+		} */
 	}
 
 	/* ============================================
@@ -251,6 +276,25 @@
 	     {chapters}
 	     --scrollo-text-stroke-shadow="none"
 	     --scrollo-text-bg-activeStep-mobile="rgba(255, 255, 255, 0.95)"
+	   />
+
+	   === DARK MODE (Auto-applied inside .scrollo-dark) ===
+	   Dark mode is automatically applied when ScrolloSteps is used inside an element with class="scrollo-dark".
+	   Default dark mode values:
+	   - Inactive: rgba(40, 40, 40, 0.9) background, #888 text
+	   - Active: rgba(20, 20, 20, 0.95) background, white text
+	   - Mobile: Black text stroke instead of white
+
+	   To customize dark mode, override these CSS variables:
+	   <ScrolloSteps
+	     {chapters}
+	     --scrollo-text-bg-dark="rgba(30, 30, 30, 0.9)"
+	     --scrollo-text-color-dark="#999"
+	     --scrollo-text-shadow-dark="1px 1px 10px rgba(0, 0, 0, 0.7)"
+	     --scrollo-text-bg-activeStep-dark="rgba(10, 10, 10, 0.95)"
+	     --scrollo-text-color-activeStep-dark="#fff"
+	     --scrollo-text-bg-activeStep-mobile-dark="rgba(20, 20, 20, 0.85)"
+	     --scrollo-text-stroke-shadow-dark="custom shadow values"
 	   />
 
 	   ============================================ */

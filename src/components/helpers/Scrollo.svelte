@@ -9,6 +9,7 @@
 	 *   bind:value={currentStep}
 	 *   bind:stepProgress={progress}
 	 *   top="50vh"
+		   smoothIntro={true} // defaults to false
 	 * >
 	 *   {#each steps as step}
 	 *     <div class="step">{step}</div>
@@ -23,6 +24,7 @@
 		increments?: number;
 		value?: number | undefined;
 		stepProgress?: number | undefined;
+		smoothIntro?: boolean;
 		children?: Snippet;
 	}
 
@@ -33,6 +35,7 @@
 		increments = 100,
 		value = $bindable(undefined),
 		stepProgress = $bindable(undefined),
+		smoothIntro = false,
 		children
 	}: Props = $props();
 
@@ -79,11 +82,53 @@
 		// Update value
 		if (activeIndex >= 0) {
 			value = activeIndex;
-			stepProgress = calculateStepProgress();
+			// Step 0 shares a combined arc with the pre-step dead zone (see below).
+			// All other steps use their own independent 0→1 arc.
+			stepProgress =
+				smoothIntro && activeIndex === 0
+					? calculateCombinedFirstStepProgress()
+					: calculateStepProgress();
 		} else {
 			value = undefined;
-			stepProgress = undefined;
+			// Pre-step: same formula as step 0 — one continuous arc across both phases.
+			stepProgress =
+				smoothIntro && nodes[0]
+					? calculateCombinedFirstStepProgress()
+					: undefined;
 		}
+	}
+
+	/**
+	 * Single continuous 0→1 arc spanning the pre-step dead zone AND step 0.
+	 *
+	 * Anchored to step 0's fixed document position so that:
+	 *   - progress = 0  when step 0's top first enters the viewport from below
+	 *                   (or at scrollY = 0 if step 0 is already in view on page load)
+	 *   - progress = 1  when the trigger line exits the bottom of step 0
+	 *
+	 * Because step0AbsoluteTop = scrollY + rect.top is constant (element doesn't
+	 * move in the document), this formula returns the identical value at the seam
+	 * where step activates — no reset, no discontinuity.
+	 */
+	function calculateCombinedFirstStepProgress(): number | undefined {
+		if (!nodes[0]) return undefined;
+
+		const trigger = triggerPointPx;
+		const viewportHeight = window.innerHeight;
+		const rect = nodes[0].getBoundingClientRect();
+		const step0AbsoluteTop = window.scrollY + rect.top; // fixed document position
+
+		// scrollY at which step 0's top enters the viewport (clamped to 0 for page-load cases)
+		const startScrollY = Math.max(0, step0AbsoluteTop - viewportHeight);
+		// scrollY at which the trigger line exits step 0's bottom
+		const endScrollY = step0AbsoluteTop - trigger + rect.height;
+
+		const totalRange = endScrollY - startScrollY;
+		const traveled = window.scrollY - startScrollY;
+
+		return totalRange > 0
+			? Math.max(0, Math.min(1, traveled / totalRange))
+			: undefined;
 	}
 
 	function calculateStepProgress() {
