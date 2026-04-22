@@ -21,7 +21,6 @@
 		"@sveltejs/kit": "^2.50.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@types/d3": "^7.4.3",
-		"archieml": "^0.5.0",
 		"autoprefixer": "^10.4.23",
 		"bits-ui": "^2.15.4",
 		"d3": "^7.9.0",
@@ -46,6 +45,7 @@
 	},
 	"browserslist": "> 0.5%, last 4 versions, not ie <= 11, not ie_mob <= 11",
 	"dependencies": {
-		"@nshiab/simple-data-analysis": "jsr:^5.18.5"
+		"@nshiab/simple-data-analysis": "jsr:^5.18.5",
+		"archieml": "^0.5.0"
 	}
 }
