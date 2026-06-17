@@ -12,49 +12,51 @@ This fork uses a **Feature Branch Strategy** to stay synchronized with upstream 
 
 ### Step-by-Step Upstream Sync Process
 
-#### 1. Update Main Branch with Upstream
+> **Branch roles:** `pudding` is the clean upstream mirror; `main` holds the ACS/C&EN customizations. You sync upstream **into `pudding`**, then merge **`pudding` into `main`**. In that final merge, `--ours` = `main` (ACS) and `--theirs` = `pudding` (upstream).
+
+#### 1. Update the Pudding Mirror with Upstream
 ```bash
 # Fetch latest changes from upstream
 git fetch upstream
 
-# Switch to main branch and merge upstream changes
-git checkout main
+# Switch to the pudding mirror and merge upstream changes
+git checkout pudding
 git merge upstream/main
 
-# Push updated main to origin
-git push origin main
+# Push updated pudding to origin
+git push origin pudding
 ```
 
-#### 2. Safely Merge into ACS Branch
+#### 2. Safely Prepare the ACS Branch
 ```bash
-# Switch to acs-main and create a backup
-git checkout acs-main
-git branch acs-main-backup-$(date +%Y%m%d)
+# Switch to main and create a backup
+git checkout main
+git branch main-backup-$(date +%Y%m%d)
 
-# Check what's coming in from main
-git diff acs-main..main --stat
+# Check what's coming in from the pudding mirror
+git diff main..pudding --stat
 ```
 
 #### 3. Conservative Merge with Visual Conflict Resolution
 ```bash
 # Initiate merge (this will create conflicts for manual control)
-git merge main --no-ff
+git merge pudding --no-ff
 ```
 
 #### 4. Use Zed's Git Tools for Visual Resolution
 - Open **Git Panel**: `git panel: toggle focus` or click Git icon
 - Open **Project Diff**: `Ctrl+G D` / `Cmd+G D` for visual conflict resolution
 - For each conflict:
-  - **Prioritize acs-main changes** (logo, branding, config)
-  - **Accept main's updates** for packages and dependencies
+  - **Prioritize main (ACS) changes** (logo, branding, config)
+  - **Accept pudding's updates** for packages and dependencies
   - **Edit directly** in Project Diff multibuffer view
   - **Stage resolved hunks** with `Cmd+Y` / `Alt+Y`
 
 #### 5. Handle Special Cases
-- **Package files**: Accept main's versions with `git checkout --theirs package.json pnpm-lock.yaml`
-- **Logo/branding**: Keep acs-main versions (your customizations)
-- **package-lock.json**: Remove if present with `git rm package-lock.json` (acs-main uses pnpm)
-- **Lock file regeneration**: Always run `pnpm install` after accepting `pnpm-lock.yaml` - this adapts the lock file to your platform (Mac ARM64 vs Linux x64) and ensures it matches your actual `node_modules`. Accept upstream's lock as a starting point, then regenerate for your environment.
+- **`package.json`**: ⚠️ Do **not** blanket-accept either side. It mixes upstream's dependency *versions* (take pudding's) with ACS-only scripts and deps — `convert:aem` / `build:aem` / `sda*` scripts, `tsx`, `@nshiab/simple-data-analysis`, and `archieml` (which must stay in `dependencies`, not `devDependencies`, because it's imported in `src/`). A `git checkout --theirs package.json` would silently drop all of those. **Hand-merge it:** keep pudding's versions, re-add the ACS scripts/deps.
+- **`pnpm-lock.yaml`**: Don't hand-merge. Take either side (`git checkout --theirs pnpm-lock.yaml`) as a throwaway starting point, then regenerate with `pnpm install` — this adapts it to your platform (Mac ARM64 vs Linux x64) and your resolved `package.json`, then `git add pnpm-lock.yaml`.
+- **Logo/branding**: Keep main (ACS) versions (your customizations).
+- **`package-lock.json`**: Remove if present with `git rm package-lock.json` (`main` uses pnpm, not npm).
 
 #### 6. Complete the Merge
 ```bash
@@ -68,7 +70,7 @@ git status
 git add pnpm-lock.yaml
 
 # Commit the merge
-git commit -m "Merge main branch updates, keeping acs-main customizations"
+git commit -m "Merge pudding branch updates, keeping ACS (main) customizations"
 
 # Verify important files are intact
 ls src/svg/  # Check logo files
@@ -80,7 +82,7 @@ git log --oneline -5  # Review merge history
 - **Accept beneficial upstream updates**: Package versions, security updates, new features
 - **Conservative approach**: Always create backups, resolve conflicts manually
 - **Visual tools**: Use Zed's Project Diff for clear conflict resolution
-- **Package manager**: acs-main uses **pnpm** for better performance and disk efficiency
+- **Package manager**: `main` uses **pnpm** for better performance and disk efficiency
 
 ### Embeddable Component Architecture
 This starter is configured to be **embedded into larger websites** without style conflicts:
