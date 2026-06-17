@@ -343,7 +343,8 @@
 
 	/*.wordmark {
 		transform: rotate(var(--left-tilt, -2deg));
-		max-width: 360px;
+		max-width: 320px;
+		margin-left: -5%;
 		transition: transform calc(var(--1s) * 0.25);
 	}*/
 

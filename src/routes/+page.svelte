@@ -4,11 +4,9 @@
 	// import Meta from "$components/Meta.svelte";
 	import Index from "$components/Index.svelte";
 	import copy from "$data/copy.json";
-	import version from "$utils/version.js";
+	import "$utils/version.js";
 
 	let { data } = $props();
-
-	version();
 
 	const preloadFont = [
 		"https://rsms.me/inter/font-files/InterVariable.woff2?v=4.1"
